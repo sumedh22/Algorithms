@@ -1,0 +1,71 @@
+public class MergeSort{
+  public static void main(String[] args){
+    
+    int[] arr={2,9,12,4,1,0};
+    System.out.println("Initial array:\n");
+    printArray(arr);
+    System.out.println("Ordered array:\n");
+    sort(arr,0,arr.length-1);
+    printArray(arr);
+    
+  }
+  
+  
+  static printArray(int[] arr){
+    for(int i=0; i<arr.length; i++){
+      System.out.println(arr[i]+", ");
+    }
+  }
+  
+  
+  public void sort(int[] arr, int l, int r){
+    if(l<r){
+      int m=(l+r)/2;
+      sort(arr,l,m);
+      sort(arr,m+1,r);
+      merge(arr,l,m,r);
+    }
+  }
+  
+  
+  private void merge(int[] arr, int l, int m, int r){
+    
+    int n1=m-l+1;
+    int n2=r-m;
+    
+    int[] left=new int[n1];
+    int[] right=new int[n2];
+    
+    for(int i=0; i<n1; i++){
+      left[i]=arr[l+i];
+    }
+    for(int j=0; j<n2; j++){
+      right[j]=arr[m+1+j];
+    }
+    
+    int k=l;
+    int i=0;
+    int j=0;
+    
+    for(i,j; i<n1 && j<n2; i++,j++){
+      if(left[i]<right[j]){
+        arr[k]=left[i];
+        k++;
+      }
+      else{
+        arr[k]=right[j];
+        k++;
+      }
+    }
+    
+    while(i<n1){
+      arr[k]=left[i];
+      k++;
+      i++;
+    }
+    while(j<n2){
+      arr
+    
+  }
+  
+}
